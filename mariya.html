@@ -1,0 +1,190 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Linto & Mariya - Wedding Invitation</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mariya.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    
+</head>
+
+<body>
+
+ <div id="preloader">
+  <div class="pre-bg"></div>
+
+  <div class="ring-scene">
+  <div class="ring">
+    <div class="pre-heart">♥</div>
+  </div>
+
+    <!-- letters -->
+    <div class="letters">
+      <span class="letter-l">L</span>
+      <span class="letter-m">M</span>
+    </div>
+
+    <div class="loading-text">
+      Loading <span id="loadPercent">0</span>%
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div id="soundToggle" class="sound-toggle">
+  <i class="fa-solid fa-volume-xmark"></i>
+</div>
+
+<div class="hero-content">
+  <div class="monogram">
+  L <span class="heart">♥</span> M
+</div>
+
+  <div class="gold">Linto</div>
+  <div class="and">&</div>
+  <div class="gold">Mariya</div>
+
+  <div class="context">Together with their families invite you to celebrate</div>
+  <div class="subtitle">May 3 · 2026</div>
+
+  <div class="cta-wrap">
+  <button class="cta primary" onclick="scrollToDetails()">View Details</button>
+</div>
+</div>
+
+<div class="scroll-indicator" ><span></span></div>
+
+</section>
+<audio id="music" loop playsinline>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+    <section class="countdown-container">
+        <h2>You are Invited!</h2>
+        <div class="timer" id="countdown">
+            <div class="timer-box">
+                <div class="timer-circle"><span id="days">00</span></div>
+                <p>Days</p>
+            </div>
+            <div class="timer-box">
+                <div class="timer-circle"><span id="hours">00</span></div>
+                <p>Hours</p>
+            </div>
+            <div class="timer-box">
+                <div class="timer-circle"><span id="minutes">00</span></div>
+                <p>Minutes</p>
+            </div>
+            <div class="timer-box">
+                <div class="timer-circle"><span id="seconds">00</span></div>
+                <p>Seconds</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="details" id="details">
+        <h2>The Wedding Celebration</h2>
+        <p>With joyful hearts, we invite you to join us on our special day.</p>
+
+        <div class="details-grid">
+            <div class="card">
+                <div class="card-date">
+                    <span>3:30 PM</span>
+
+                </div>
+                <div class="card-info">
+                    <h3>The Ceremony</h3>
+
+                    <p><strong>St. Alphonsa Church, Vallakunnu</strong></p>
+                    <p>Vallakkunnu, Kalletumkara, Kerala 680683</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=10.343153,76.261833" target="_blank"
+                        class="map-button">Get Directions</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-date">
+                    <span>6:30 PM</span>
+
+                </div>
+                <div class="card-info">
+                    <h3>The Reception</h3>
+
+                    <p><strong>SJM Convention Center ( എസ്ജെഎം കൺവൻഷൻ സെന്റർ )</strong></p>
+                    <p> Muriyad, Kerala 680683</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=10.355669,76.261771" target="_blank"
+                        class="map-button">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wishes-section">
+        <h2>Blessings & Wishes 💍</h2>
+        <p class="wishes-subtitle">Leave a little sparkle for the couple</p>
+
+        <div class="wishes-container">
+            <!-- Form Card -->
+            <div class="wishes-form-card glass-card">
+                <form id="wishesForm">
+                    <div class="form-group floating-label-group">
+                        <input type="text" id="guestName" name="guestName" required autocomplete="off" placeholder=" ">
+                        <label for="guestName">Your Name</label>
+                    </div>
+                    
+                    <div class="form-group floating-label-group">
+                        <textarea id="guestMessage" name="guestMessage" required rows="4" placeholder=" "></textarea>
+                        <label for="guestMessage">Your Wishes</label>
+                    </div>
+
+                    <div class="emoji-picker">
+                        <button type="button" class="emoji-btn">❤️</button>
+                        <button type="button" class="emoji-btn">✨</button>
+                        <button type="button" class="emoji-btn">🥂</button>
+                        <button type="button" class="emoji-btn">🎉</button>
+                        <button type="button" class="emoji-btn">🕊️</button>
+                    </div>
+
+                    <button type="submit" class="submit-wishes-btn">
+                        <span>Send Wishes</span>
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </form>
+                
+                <div id="wishesSuccess" class="success-message" style="display:none;">
+                    <div class="hearts-anim">💖✨💖</div>
+                    <p>Thank you for your beautiful wishes!</p>
+                </div>
+            </div>
+
+            <!-- Wall Container -->
+            <div class="wishes-wall-container">
+                <div class="wishes-wall" id="wishesWall">
+                    <!-- Dynamic wishes will appear here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>#LintoWedsMariya2026</p>
+        <p>&copy; 2026 Linto & Mariya. Made with love.</p>
+    </footer>
+    
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <!-- Firebase Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+    <script src="mariya.js"></script>
+</body>
+
+</html>
