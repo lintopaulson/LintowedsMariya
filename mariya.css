@@ -246,6 +246,7 @@ body{overflow-x:hidden;font-family:"Playfair",serif}
   cursor:pointer;
   font-weight:600;
   transition:.3s;
+  color: #000;
 }
 /* ===== CINEMATIC SHINY BUTTON ===== */
 
@@ -779,4 +780,5 @@ body{overflow-x:hidden;font-family:"Playfair",serif}
      .timer-box span {
          font-size: 1.5rem;
      }
+
  }
